@@ -55,11 +55,14 @@ Input:    6 -> -20 30 -40 50 10 -10
 Output: 2
 '''
 
+import random
+
 days = int(input("Введите количество дней наблюдений: "))
 list_temp = []
 for i in range (days):
-    temp = int (input(f'Введите температуру в {i+1} день: '))
-    list_temp.append(temp)
+    # temp = int (input(f'Введите температуру в {i+1} день: '))
+    # list_temp.append(temp)
+    list_temp.append(random.randint(-10,10))
 print (list_temp)
 
 count = 0

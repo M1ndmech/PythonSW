@@ -89,14 +89,17 @@ Input: [0, -1, 5, 2, 3]
 Output: 2 (-1 < 5, 2 < 3)
 '''
 
+def count_higher_next_values (list):
+    counter = 0
+    for i in range (1, len(list3)):
+        if list3[i] > list3[i-1]:
+            counter += 1
+    return counter
+
 length_input_3 = int(input("Введите длину списка: "))
 min_input_3 = int(input("Введите минимальное значение списка: "))
 max_input_3 = int(input("Введите максимальное значение списка: "))
 list3 = random_int_list(length_input_3, min_input_3, max_input_3)
-counter = 0
-for i in range (1, len(list3)):
-    if list3[i] > list3[i-1]:
-        counter += 1
 
 print(list3)
-print(counter)    
+print(count_higher_next_values(list3))    

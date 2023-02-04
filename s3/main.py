@@ -32,7 +32,7 @@ Output:  [4, 5, 1, 2, 3]
 # length_input_2 = int(input("Введите длину списка: "))
 # min_input_2 = int(input("Введите минимальное значение списка: "))
 # max_input_2 = int(input("Введите максимальное значение списка: "))
-# k_input = int(input("Введите значение сдвига списка: "))
+# # k_input = int(input("Введите значение сдвига списка: "))
 # list2 = random_int_list(length_input_2, min_input_2, max_input_2)
 
 # print (list2)
@@ -71,17 +71,16 @@ Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
 '''
 
 dict1 = {
-    "V": "S001", 
+    "IV": "S001", 
     "V": "S002", 
     "VI": "S001", 
-    "VI": "S005", 
-    "VII": " S005 ", 
-    " V ":" S009 ", 
-    " VIII ":" S007 "
+    "III": "S005", 
+    "VII": "S005", 
+    "IX": "S009", 
+    "VIII":"S007"
     }
-set2 = list(dict1.values())
+print(*set(dict1.values()))
 
-print(set2)
 
 '''
 Задача 4. Дан массив, состоящий из целых чисел. 
@@ -90,3 +89,14 @@ Input: [0, -1, 5, 2, 3]
 Output: 2 (-1 < 5, 2 < 3)
 '''
 
+length_input_3 = int(input("Введите длину списка: "))
+min_input_3 = int(input("Введите минимальное значение списка: "))
+max_input_3 = int(input("Введите максимальное значение списка: "))
+list3 = random_int_list(length_input_3, min_input_3, max_input_3)
+counter = 0
+for i in range (1, len(list3)):
+    if list3[i] > list3[i-1]:
+        counter += 1
+
+print(list3)
+print(counter)    

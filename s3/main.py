@@ -13,14 +13,14 @@ def random_int_list (length, min, max):
     return list
 
 
-# length_input = int(input("Введите длину списка: "))
-# min_input = int(input("Введите минимальное значение списка: "))
-# max_input = int(input("Введите максимальное значение списка: "))
-# list1 = random_int_list(length_input, min_input, max_input)
-# print(list1)
-# set1 = set(list1)
-# print(set1)
-# print(len(set1))
+length_input = int(input("Введите длину списка: "))
+min_input = int(input("Введите минимальное значение списка: "))
+max_input = int(input("Введите максимальное значение списка: "))
+list1 = random_int_list(length_input, min_input, max_input)
+print(list1)
+set1 = set(list1)
+print(set1)
+print(len(set1))
 
 '''
 Задача 2. Дана последовательность из N целых чисел и число K. 
@@ -29,19 +29,19 @@ Input:   [1, 2, 3, 4, 5] k = 3
 Output:  [4, 5, 1, 2, 3]
 '''
 
-# length_input_2 = int(input("Введите длину списка: "))
-# min_input_2 = int(input("Введите минимальное значение списка: "))
-# max_input_2 = int(input("Введите максимальное значение списка: "))
-# # k_input = int(input("Введите значение сдвига списка: "))
-# list2 = random_int_list(length_input_2, min_input_2, max_input_2)
+length_input_2 = int(input("Введите длину списка: "))
+min_input_2 = int(input("Введите минимальное значение списка: "))
+max_input_2 = int(input("Введите максимальное значение списка: "))
+# k_input = int(input("Введите значение сдвига списка: "))
+list2 = random_int_list(length_input_2, min_input_2, max_input_2)
 
-# print (list2)
+print (list2)
 
-# if k_input > 0: 
-#     for i in range (k_input):
-#         list2.insert(0, list2.pop(-1))
+if k_input > 0: 
+    for i in range (k_input):
+        list2.insert(0, list2.pop(-1))
 
-# print (list2)
+print (list2)
 
 
 # альтернативный вариант:

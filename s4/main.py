@@ -5,20 +5,21 @@ Input: a a a b c a a d c d d
 Output: a a_1 a_2 b c a_3 a_4 d c_1 d_1 d_2
 '''
 
-# def input_list (length):
-#     list = []
-#     for i in range (length):
-#         input_symbol = input('Введите символ: ')
-#         list.append(input_symbol)
-#     return list
+def input_list (length):
+    list = []
+    for i in range (length):
+        input_symbol = input('Введите символ: ')
+        list.append(input_symbol)
+    return list
 
-# length_input = int(input("Введите длину списка: "))
-# list1 = input_list(length_input)
-# set1 = set(list1)
+length_input = int(input("Введите длину списка: "))
+list1 = input_list(length_input)
+set1 = set(list1)
 
-# for item in set1:
-#     print(f'{item}: {list1.count(item)}')
+for item in set1:
+    print(f'{item}: {list1.count(item)}')
 
+'''альтернатива'''
 # list_1 = input("Введите слово: ")
 # temp = list_1[0]
 # count = 0
@@ -43,11 +44,13 @@ So if she sells sea shells on the sea shore
 I'm sure that the shells are sea shore shells 
 Output: 13'''
 
-# str_test = "She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells" 
-# str_test2 = str_test.lower()
-# set2 = set(str_test2.split(" "))
-# print(set2)
-# print(len(set2))
+str_test = "She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells" 
+str_test2 = str_test.lower()
+set2 = set(str_test2.split(" "))
+print(set2)
+print(len(set2))
+
+#print(dir(a)) - выводит все методы для типа класса
 
 '''
 3. Ваня и Петя поспорили, кто быстрее решит следующую задачу: 
@@ -71,3 +74,10 @@ while list_num_check > 0:
     list_num_check // 10
 
 print(max_num)
+
+# оператор присваивания, или моржовый оператор - на заметку
+# maxx = 0
+# while (x:=int(input("Введите число: "))) != 0:
+#     if x > maxx:
+#         maxx = x
+# print(f'Максимальное из введённых число: {maxx}')

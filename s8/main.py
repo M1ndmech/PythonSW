@@ -48,34 +48,3 @@ def user_action():
 
 user_action()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def add_contact (dict1):
-#     name = input("Введите имя контакта:")
-#     surname = input("Введите фамилию контакта:")
-#     patronymic = input("Введите отчество контакта:")
-#     phone = input("Введите телефонный номер:")
-#     new_contact = {'name': name, 'surname': surname, 'patronymic': patronymic, 'phone': phone}
-#     return dict1 | new_contact
-
-# contact_dict = {}
-
-# with open(contacts_file, 'r') as open_file:
-#     open_file.read()
-#     add_contact(contact_dict)
-# print(contact_dict)
-

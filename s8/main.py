@@ -17,19 +17,19 @@ import random
 
 contacts_file = r'C:\Users\Alexey\Desktop\GB\Python\swork\s8\contacts.txt'
 
-def append_contact(contacts_file):
+def append_contact(file):
     contact = input('Введите контакт в формате Ф И О Телефон:')
-    with open(contacts_file, 'a', encoding="utf-8") as f:
+    with open(file, 'a', encoding="utf-8") as f:
         f.write(f'\n{contact}')
     print ('Контакт добавлен')
 
-def read_file(contacts_file):
-    with open(contacts_file, 'r', encoding="utf-8") as f:
+def read_file(file):
+    with open(file, 'r', encoding="utf-8") as f:
         print (f.read())
 
-def search_contact(contacts_file):
+def search_contact(file):
     search_by = input("Введите информацию для поиска (фамилия, имя или отчество):")
-    with open(contacts_file, 'r', encoding="utf-8") as f:
+    with open(file, 'r', encoding="utf-8") as f:
         for line in f:
             if search_by in line:
                 print(line)

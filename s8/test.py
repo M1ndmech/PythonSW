@@ -14,7 +14,10 @@ def read_file(file) -> dict:                        #считывает файл
 def write_dict(nested_dict, file):                        #считывает файл и записывает содержимое в переменную
     with open(file, 'w', encoding="utf-8") as f:
         for k, v in nested_dict.items():
-            f.writelines(f'\n{{"{k}":{v}}}')
+            if k == "1":
+                f.writelines(f'{{"{k}":{v}}}')
+            else:
+                f.writelines(f'\n{{"{k}":{v}}}')
     print('Файл перезаписан')
 
 def print_nested_dict(nested_dict, keylist):        #навести красоту по табуляции, одного \t не хватает
@@ -29,7 +32,7 @@ def append_contact(file, keylist, cont_numbers):    #добавление стр
     for key, value in keylist.items():              #цикл формирует пары {ключ:значение} и добавляет в словарь                    
         addition = input(f'Введите {value}:')       #подсказка для ввода - значение на русском
         contact_info.update({key: addition})
-    save_line.update({str(len(cont_numbers) + 1):contact_info})     #пара {номер контакта:словарь}
+    save_line.update({str(cont_numbers[-1] + 1):contact_info})     #пара {номер контакта:словарь}
     with open(file, 'a', encoding="utf-8") as f:
         f.write(f'\n{save_line}')
     print ('Контакт добавлен')
@@ -56,9 +59,8 @@ def lookup_contact (nested_dict):
             return
 
 def change_contact (nested_dict, keylist, file):    
-    # Условно работает - изменяет, но добавляет строку в начало файла.
-    # И надо нажимать 2 несколько раз если есть повторы имен/фамилий
     input1 = input("Поиск изменяемого контакта. Введите фамилию или имя:")
+    flag = False
     for key, value in nested_dict.items():
         if nested_dict[key]['name'] == input1 or nested_dict[key]['surname'] == input1:
             print(f'Найдена запись: {" ".join(str(x) for x in nested_dict[key].values())}') 
@@ -66,9 +68,27 @@ def change_contact (nested_dict, keylist, file):
                 if input_choice_2 == 1:
                     for k, v in keylist.items():
                         nested_dict[key][k] = (input_2 := input(f'Введите новое значение {v} или нажмите Enter:'))
-    write_dict(nested_dict, file)
+                    flag = True
+                    break
+    if flag:
+        write_dict(nested_dict, file)
 
-# print(contacts_dict['1']['name'])
+def remove_contact (nested_dict, file):    
+    # Условно работает - изменяет, но добавляет строку в начало файла.
+    # И надо нажимать 2 несколько раз если есть повторы имен/фамилий
+    input1 = input("Поиск удаляемого контакта. Введите фамилию или имя:")
+    flag = False
+    new_dict = nested_dict.copy()
+    for key, value in nested_dict.items():
+        if nested_dict[key]['name'] == input1 or nested_dict[key]['surname'] == input1:
+            print(f'Найдена запись: {" ".join(str(x) for x in nested_dict[key].values())}') 
+            while(input_choice_2:= int(input('Выбран правильный контакт? (1 - Да, 2 - Нет):'))) != 2:
+                if input_choice_2 == 1:
+                    del new_dict[key]
+                flag = True
+                break
+    if flag:
+        write_dict(new_dict, file)
 
 def user_action():
     contacts_dict = read_file(contacts_file)
@@ -79,6 +99,7 @@ def user_action():
     '2) Добавить контакт \n'
     '3) Найти контакт\n'
     '4) Изменить контакт\n'
+    '5) Удалить контакт'
     )
     while (input1:= int(input('Выберите действие со справочником (0 = выход):'))) != 0:
         if input1 == 1:
@@ -89,6 +110,8 @@ def user_action():
             lookup_contact(contacts_dict)
         elif input1 == 4:
             change_contact(contacts_dict, cont_arg_list, contacts_file)
+        elif input1 == 5:
+            remove_contact(contacts_dict, contacts_file)
         else:
             print("Некорректный ввод")
 

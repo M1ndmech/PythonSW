@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-*taxi_dataset_with_predictions.csv
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -344,6 +344,7 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+
 # OpenCover UI analysis results
 OpenCover/
 
@@ -397,3 +398,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+*dataset_with_predictions.csv
